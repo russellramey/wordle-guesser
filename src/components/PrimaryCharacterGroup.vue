@@ -4,7 +4,7 @@
             <p>Known word letters and positions:</p>
             <ul>
                 <li v-for="(character, index) in data.characters.primary" :key="index">
-                    <input v-model="data.characters.primary[index]" class="character character-primary" type="text" maxlength="1" />
+                    <input v-model="data.characters.primary[index]" class="character character-primary" type="text" maxlength="1" v-on:keypress="isLetter" />
                 </li>
             </ul>
         </div>
@@ -16,6 +16,13 @@ export default {
     name: 'PrimaryCharacterGroup',
     props: {
         data: Object
+    },
+    methods:{
+        isLetter(e) {
+            let char = String.fromCharCode(e.keyCode); // Get the character
+            if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex
+            else e.preventDefault(); // If not match, don't add to input text
+        }
     }
 }
 </script>

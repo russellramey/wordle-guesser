@@ -4,10 +4,10 @@
             <div class="filter-input">
                 <slot></slot>
                 <template v-if="theme === 'present'">
-                    <input v-model="data.characters.present" class="character character-present" type="text" style="" maxlength="5" />
+                    <input v-model="data.characters.present" class="character character-present" type="text" style="" maxlength="5" v-on:keypress="isLetter" />
                 </template>
                 <template v-if="theme === 'absent'">
-                    <input v-model="data.characters.absent" class="character character-absent" type="text" style="" maxlength="30" />
+                    <input v-model="data.characters.absent" class="character character-absent" type="text" style="" maxlength="30" v-on:keypress="isLetter" />
                 </template>
             </div>
         </div>
@@ -20,6 +20,13 @@ export default {
     props: {
         data: Object,
         theme: String
+    },
+    methods:{
+        isLetter(e) {
+            let char = String.fromCharCode(e.keyCode); // Get the character
+            if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex
+            else e.preventDefault(); // If not match, don't add to input text
+        }
     }
 }
 </script>
