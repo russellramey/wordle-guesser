@@ -1,6 +1,9 @@
 # Wordle-Guesser
 Stuck on the latest [Wordle](https://www.powerlanguage.co.uk/wordle/)? Not anymore, Wordle-Guesser is a simple tool/application to help solve the daily Wordle. If you don't know what Wordle is, it is a daily 5 letter word guessing game. You too can play [Wordle](https://www.powerlanguage.co.uk/wordle/).
 
+## URL
+Use the [Wordle Guesser](https://russellramey.github.io/wordle-guesser/) GUI.
+
 ## How to use
 As you play [Wordle](https://www.powerlanguage.co.uk/wordle/), you will get feedback as to how accurate you guess is. Using this feedback you can use this tool to narrow down your guesses, or simply use it to get inspired with your next guess.
 1. Place known/correct letters found in the green tiles on Worlde, in the proper positions in the green inputs.
