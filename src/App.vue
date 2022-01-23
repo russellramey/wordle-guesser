@@ -61,8 +61,8 @@ export default {
     },
     methods:{
         search(){
-            // Reset results array
-            this.state.results = this.state.wordlist.solutions;
+            // Reset results array, duplicate wordlist
+            this.state.results = [...this.state.wordlist.solutions];
 
             if(this.characterCount.length !== 0){
                 console.log('filterPrimaryCharacters');
@@ -141,10 +141,10 @@ export default {
             return this.state.characters.primary.filter(function(letter){ return letter != null && letter != ''; });
         },
         charactersPresent(){
-            return (this.state.characters.present ? this.state.characters.present.split('') : [])
+            return (this.state.characters.present && this.state.characters.present !== ''  ? this.state.characters.present.split('') : [])
         },
         charactersAbsent(){
-            return (this.state.characters.absent ? this.state.characters.absent.split('') : [])
+            return (this.state.characters.absent && this.state.characters.absent !== '' ? this.state.characters.absent.split('') : [])
         }
     }
 }
